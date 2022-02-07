@@ -158,3 +158,6 @@ gradle-app.setting
 ### Gradle Patch ###
 **/build/
 # End of https://www.toptal.com/developers/gitignore/api/java,maven,intellij+all
+
+/src/main/java/playground/
+/src/test/java/playground/
