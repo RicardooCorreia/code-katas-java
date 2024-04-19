@@ -1,5 +1,6 @@
 package leetcode;
 
+import leetcode.util.ListNode;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
@@ -18,7 +19,7 @@ class MergeTwoSortedListsTest {
         List<Integer> list2 = List.of(1, 3, 4);
 
         // When
-        MergeTwoSortedLists.ListNode result = subject.mergeTwoLists(listToListNode(list1), listToListNode(list2));
+        ListNode result = subject.mergeTwoLists(listToListNode(list1), listToListNode(list2));
 
         // Then
         List<Integer> expected = List.of(1, 1, 2, 3, 4, 4);
@@ -34,7 +35,7 @@ class MergeTwoSortedListsTest {
         List<Integer> list2 = List.of();
 
         // When
-        MergeTwoSortedLists.ListNode result = subject.mergeTwoLists(listToListNode(list1), listToListNode(list2));
+        ListNode result = subject.mergeTwoLists(listToListNode(list1), listToListNode(list2));
 
         // Then
         assertThat(result)
@@ -49,29 +50,29 @@ class MergeTwoSortedListsTest {
         List<Integer> list2 = List.of(1);
 
         // When
-        MergeTwoSortedLists.ListNode result = subject.mergeTwoLists(listToListNode(list1), listToListNode(list2));
+        ListNode result = subject.mergeTwoLists(listToListNode(list1), listToListNode(list2));
 
         // Then
         assertThat(result)
-                .isEqualTo(new MergeTwoSortedLists.ListNode(1));
+                .isEqualTo(new ListNode(1));
     }
 
-    public MergeTwoSortedLists.ListNode listToListNode(List<Integer> integerList) {
+    public ListNode listToListNode(List<Integer> integerList) {
 
         if (integerList == null || integerList.size() == 0) {
             return null;
         }
 
         if (integerList.size() == 1) {
-            return new MergeTwoSortedLists.ListNode(integerList.get(0));
+            return new ListNode(integerList.get(0));
         }
 
-        MergeTwoSortedLists.ListNode firstNode = new MergeTwoSortedLists.ListNode();
+        ListNode firstNode = new ListNode();
         firstNode.val = integerList.get(0);
 
-        MergeTwoSortedLists.ListNode current = firstNode;
+        ListNode current = firstNode;
         for (int i = 1; i < integerList.size(); i++) {
-            MergeTwoSortedLists.ListNode node = new MergeTwoSortedLists.ListNode();
+            ListNode node = new ListNode();
             node.val = integerList.get(i);
             current.next = node;
             current = node;

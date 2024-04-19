@@ -1,6 +1,6 @@
 package leetcode;
 
-import org.junit.jupiter.api.Test;
+import leetcode.util.ListNode;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -8,7 +8,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.List;
 import java.util.stream.Stream;
 
-import static leetcode.AddTwoNumbers.Solution.ListNode;
+import static leetcode.util.ListNode.listToListNode;
 import static org.assertj.core.api.Assertions.assertThat;
 
 class AddTwoNumbersTest {
@@ -38,21 +38,5 @@ class AddTwoNumbersTest {
         // Then
         assertThat(result)
                 .isEqualTo(listToListNode(expected));
-    }
-
-    public ListNode listToListNode(List<Integer> integerList) {
-
-        ListNode firstNode = new ListNode();
-        firstNode.val = integerList.get(0);
-
-        ListNode current = firstNode;
-        for (int i = 1; i < integerList.size(); i++) {
-            ListNode node = new ListNode();
-            node.val = integerList.get(i);
-            current.next = node;
-            current = node;
-        }
-
-        return firstNode;
     }
 }
