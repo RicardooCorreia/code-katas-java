@@ -2,7 +2,7 @@ package code.wars.ping_pong;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class DinglemouseTest {
 
@@ -15,7 +15,7 @@ class DinglemouseTest {
         final String result = Dinglemouse.pingPong(noises);
 
         // Then
-        assertEquals("ping", result);
+        assertThat(result).isEqualTo("ping");
     }
 
     @Test
@@ -27,7 +27,7 @@ class DinglemouseTest {
         final String result = Dinglemouse.pingPong(noises);
 
         // Then
-        assertEquals("pong", result);
+        assertThat(result).isEqualTo("pong");
     }
 
     @Test
@@ -40,7 +40,7 @@ class DinglemouseTest {
         final String result = Dinglemouse.pingPong(noises);
 
         // Then
-        assertEquals("ping", result);
+        assertThat(result).isEqualTo("ping");
     }
 
     @Test
@@ -53,6 +53,6 @@ class DinglemouseTest {
         final String result = Dinglemouse.pingPong(noises);
 
         // Then
-        assertEquals("pong", result);
+        assertThat(result).isEqualTo("pong");
     }
 }

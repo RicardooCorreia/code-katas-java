@@ -1,5 +1,6 @@
 package code.wars.strip_comments;
 
+import code.wars.sum_of_differences_in_array.strip_comments.StripComments;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

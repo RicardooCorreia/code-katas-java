@@ -2,7 +2,7 @@ package code.wars.sum_of_numbers;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class SumTest {
 
@@ -19,7 +19,7 @@ class SumTest {
         final int result = subject.getSum(a, b);
 
         // Then
-        assertEquals(3, result);
+        assertThat(result).isEqualTo(3);
     }
 
     @Test
@@ -33,7 +33,7 @@ class SumTest {
         final int result = subject.getSum(a, b);
 
         // Then
-        assertEquals(-3, result);
+        assertThat(result).isEqualTo(-3);
     }
 
     @Test
@@ -47,7 +47,7 @@ class SumTest {
         final int result = subject.getSum(a, b);
 
         // Then
-        assertEquals(5, result);
+        assertThat(result).isEqualTo(5);
     }
 
     @Test
@@ -61,6 +61,6 @@ class SumTest {
         final int result = subject.getSum(a, b);
 
         // Then
-        assertEquals(2, result);
+        assertThat(result).isEqualTo(2);
     }
 }

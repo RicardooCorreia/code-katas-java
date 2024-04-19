@@ -1,4 +1,4 @@
-package code.wars.strip_comments;
+package code.wars.sum_of_differences_in_array.strip_comments;
 
 import java.util.Arrays;
 import java.util.Comparator;
