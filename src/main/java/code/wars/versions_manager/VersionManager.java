@@ -12,7 +12,7 @@ public class VersionManager {
 
         String[] versions = initialVersion.split("\\.");
         try {
-            int major = 0, minor = 0, patch = 0;
+            int major = 0, minor = 0, patch;
             if (versions.length >= 1 && !versions[0].isBlank()) {
                 major = Integer.parseInt(versions[0]);
             }
