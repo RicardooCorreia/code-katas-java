@@ -10,7 +10,7 @@ public class StripComments {
 
         return Arrays.stream(text.split("\n"))
                 .map(line -> line.substring(0, findFirstComment(line, commentSymbols)))
-                .map(String::trim)
+                .map(String::stripTrailing)
                 .collect(Collectors.joining("\n"));
     }
 
