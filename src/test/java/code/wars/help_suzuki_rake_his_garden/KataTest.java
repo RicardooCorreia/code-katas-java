@@ -2,7 +2,7 @@ package code.wars.help_suzuki_rake_his_garden;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class KataTest {
 
@@ -16,6 +16,6 @@ class KataTest {
         final String result = Kata.rakeGarden(input);
 
         // Then
-        assertEquals("gravel gravel rock gravel gravel gravel gravel gravel gravel gravel", result);
+        assertThat(result).isEqualTo("gravel gravel rock gravel gravel gravel gravel gravel gravel gravel");
     }
 }

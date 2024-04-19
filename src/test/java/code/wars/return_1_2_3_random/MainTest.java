@@ -7,8 +7,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class MainTest {
 
@@ -28,21 +27,21 @@ class MainTest {
 
     @Test
     public void testOneTwoThreeMustBePresent() {
-        assertTrue(setResults.contains(1));
-        assertTrue(setResults.contains(2));
-        assertTrue(setResults.contains(3));
+        assertThat(setResults.contains(1)).isTrue();
+        assertThat(setResults.contains(2)).isTrue();
+        assertThat(setResults.contains(3)).isTrue();
     }
 
     @Test
     public void testShouldNotContainInvalidNumbers() {
-        assertEquals(3, setResults.size());
+        assertThat(setResults.size()).isEqualTo(3);
     }
 
     @Test
     public void testAllNumbersMustBePresentsWithEqualProbability() {
-        assertTrue(numberOfResultHasProbability(1, 1.0 / 3));
-        assertTrue(numberOfResultHasProbability(2, 1.0 / 3));
-        assertTrue(numberOfResultHasProbability(3, 1.0 / 3));
+        assertThat(numberOfResultHasProbability(1, 1.0 / 3)).isTrue();
+        assertThat(numberOfResultHasProbability(2, 1.0 / 3)).isTrue();
+        assertThat(numberOfResultHasProbability(3, 1.0 / 3)).isTrue();
     }
 
     private boolean numberOfResultHasProbability(int number, double probability) {

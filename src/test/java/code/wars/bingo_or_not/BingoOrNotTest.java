@@ -2,7 +2,7 @@ package code.wars.bingo_or_not;
 
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class BingoOrNotTest {
 
@@ -16,7 +16,7 @@ class BingoOrNotTest {
         final String result = BingoOrNot.bingo(input);
 
         // Then
-        assertEquals("LOSE", result);
+        assertThat(result).isEqualTo("LOSE");
     }
 
     @Test
@@ -30,6 +30,6 @@ class BingoOrNotTest {
         final String result = BingoOrNot.bingo(input);
 
         // Then
-        assertEquals("WIN", result);
+        assertThat(result).isEqualTo("WIN");
     }
 }

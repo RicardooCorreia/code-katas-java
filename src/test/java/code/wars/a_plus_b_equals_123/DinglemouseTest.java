@@ -14,7 +14,7 @@ class DinglemouseTest {
 
         // When
         final long result = Dinglemouse.int123(input);
-g
+
         // Then
         assertThat(result)
                 .isGreaterThanOrEqualTo(0);
