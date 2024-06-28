@@ -1,7 +1,5 @@
 package leetcode;
 
-import java.util.HashSet;
-
 public class FindCenterOfStarGraph {
 
     static class Solution {
