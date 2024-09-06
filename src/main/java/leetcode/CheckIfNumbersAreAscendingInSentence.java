@@ -2,7 +2,6 @@ package leetcode;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /*
 A sentence is a list of tokens separated by a single space with no leading or trailing spaces.
