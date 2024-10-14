@@ -32,17 +32,18 @@ public class TheNumberOfTheSmallestUnoccupiedChair {
             for (Event event : eventList) {
                 switch (event.type) {
                     case ARRIVING -> {
-                        nextAvailable = getNextAvailable(nextAvailable, seats);
                         if (event.friend == targetFriend) {
                             return nextAvailable;
                         }
 
                         seats[nextAvailable] = event.friend;
                         seatingMap.put(event.friend, nextAvailable);
+                        nextAvailable = getNextAvailable(nextAvailable, seats);
                     }
                     case LEAVING -> {
                         Integer seat = seatingMap.remove(event.friend);
                         seats[seat] = EMPTY_SEAT;
+                        nextAvailable = Math.min(nextAvailable, seat);
                     }
                 }
             }
@@ -61,7 +62,7 @@ public class TheNumberOfTheSmallestUnoccupiedChair {
 
         private static int getNextAvailable(int nextAvailable, int[] seats) {
 
-            for (int i = 0; i < seats.length; i++) {
+            for (int i = nextAvailable + 1; i < seats.length; i++) {
                 if (seats[i] == EMPTY_SEAT) {
                     return i;
                 }
