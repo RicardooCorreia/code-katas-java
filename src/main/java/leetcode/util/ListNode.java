@@ -1,7 +1,5 @@
 package leetcode.util;
 
-import leetcode.AddTwoNumbers;
-
 import java.util.List;
 import java.util.Objects;
 
