@@ -80,4 +80,75 @@ public class FindAllPossibleRecipesFromGivenSupplies {
         public record Recipe(String name, List<String> ingredients) {
         }
     }
+
+    static class Solution2 {
+        public List<String> findAllRecipes(String[] recipes,
+                                           List<List<String>> ingredients,
+                                           String[] supplies) {
+
+            Map<String, RecipeInfo> cookbook = getRecipesMap(recipes, ingredients);
+            Set<String> suppliesSet = new HashSet<>(Arrays.asList(supplies));
+            Set<String> triedRecipes = new HashSet<>();
+
+            for (String recipe : recipes) {
+                makeRecipe(recipe, suppliesSet, cookbook, triedRecipes);
+            }
+
+            return cookbook.entrySet().stream()
+                    .filter(recipe -> recipe.getValue().isPossible())
+                    .map(Map.Entry::getKey)
+                    .toList();
+        }
+
+        private boolean makeRecipe(String recipe, Set<String> supplies, Map<String, RecipeInfo> cookbook, Set<String> triedRecipes) {
+
+            if (triedRecipes.contains(recipe)) {
+                return Boolean.TRUE == cookbook.get(recipe).isPossible();
+            }
+
+            triedRecipes.add(recipe);
+
+            if (supplies.contains(recipe)) {
+                return true;
+            }
+
+            RecipeInfo recipeInfo = cookbook.get(recipe);
+            if (recipeInfo.isPossible() != null) {
+                return recipeInfo.isPossible();
+            }
+
+            List<String> ingredients = recipeInfo.ingredients();
+            for (String ingredient : ingredients) {
+                if (cookbook.containsKey(ingredient)) {
+                    RecipeInfo recipeIngredientInfo = cookbook.get(ingredient);
+                    if (recipeIngredientInfo.isPossible() != null) {
+                        if (!recipeIngredientInfo.isPossible()) {
+                            cookbook.put(recipe, new RecipeInfo(ingredients, false));
+                            return false;
+                        }
+                    } else if (!makeRecipe(ingredient, supplies, cookbook, triedRecipes)) {
+                        cookbook.put(recipe, new RecipeInfo(ingredients, false));
+                        return false;
+                    }
+                } else if (!supplies.contains(ingredient)) {
+                    cookbook.put(recipe, new RecipeInfo(ingredients, false));
+                    return false;
+                }
+            }
+
+            cookbook.put(recipe, new RecipeInfo(ingredients, true));
+            return true;
+        }
+
+        private static Map<String, RecipeInfo> getRecipesMap(String[] recipes, List<List<String>> ingredients) {
+            Map<String, RecipeInfo> recipesMap = new HashMap<>();
+            for (int i = 0; i < recipes.length; i++) {
+                recipesMap.put(recipes[i], new RecipeInfo(ingredients.get(i), null));
+            }
+            return recipesMap;
+        }
+
+        public record RecipeInfo(List<String> ingredients, Boolean isPossible) {
+        }
+    }
 }

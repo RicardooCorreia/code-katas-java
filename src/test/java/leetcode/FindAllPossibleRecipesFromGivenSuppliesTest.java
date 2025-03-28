@@ -8,7 +8,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class FindAllPossibleRecipesFromGivenSuppliesTest {
 
-    private final FindAllPossibleRecipesFromGivenSupplies.Solution subject = new FindAllPossibleRecipesFromGivenSupplies.Solution();
+    private final FindAllPossibleRecipesFromGivenSupplies.Solution2 subject = new FindAllPossibleRecipesFromGivenSupplies.Solution2();
 
     @Test
     void findAllRecipes_whenSimpleRecipe_returnPossible() {
@@ -56,5 +56,21 @@ class FindAllPossibleRecipesFromGivenSuppliesTest {
         // Then
         assertThat(result)
                 .containsExactlyInAnyOrder("bread", "sandwich", "burger");
+    }
+
+    @Test
+    void findAllRecipes_whenComplexRecipes2_returnPossible() {
+
+        // Given
+        String[] recipes = {"ju", "fzjnm", "x", "e", "zpmcz", "h", "q"};
+        List<List<String>> ingredients = List.of(List.of("d"), List.of("hveml", "f", "cpivl"), List.of("cpivl", "zpmcz", "h", "e", "fzjnm", "ju"), List.of("cpivl", "hveml", "zpmcz", "ju", "h"), List.of("h", "fzjnm", "e", "q", "x"), List.of("d", "hveml", "cpivl", "q", "zpmcz", "ju", "e", "x"), List.of("f", "hveml", "cpivl"));
+        String[] supplies = {"f", "hveml", "cpivl", "d"};
+
+        // When
+        List<String> result = subject.findAllRecipes(recipes, ingredients, supplies);
+
+        // Then
+        assertThat(result)
+                .containsExactlyInAnyOrder("ju", "fzjnm", "q");
     }
 }
