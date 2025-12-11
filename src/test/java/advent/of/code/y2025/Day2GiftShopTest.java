@@ -21,7 +21,7 @@ class Day2GiftShopTest {
 
         // Then
         assertThat(result)
-                .isEqualTo(1227775554);
+                .isEqualTo(4174379265L);
     }
 
     @Test
@@ -35,6 +35,6 @@ class Day2GiftShopTest {
 
         // Then
         assertThat(result)
-                .isEqualTo(15873079081L);
+                .isEqualTo(22617871034L);
     }
 }
