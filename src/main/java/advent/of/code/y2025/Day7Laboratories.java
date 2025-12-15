@@ -3,6 +3,7 @@ package advent.of.code.y2025;
 import java.util.Arrays;
 
 /*
+https://adventofcode.com/2025/day/7
 --- Day 7: Laboratories ---
 You thank the cephalopods for the help and exit the trash compactor, finding yourself in the familiar halls of a North Pole research wing.
 

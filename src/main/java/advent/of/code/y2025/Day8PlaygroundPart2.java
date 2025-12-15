@@ -3,6 +3,7 @@ package advent.of.code.y2025;
 import java.util.*;
 
 /*
+https://adventofcode.com/2025/day/8
 --- Day 8: Playground ---
 Equipped with a new understanding of teleporter maintenance, you confidently step onto the repaired teleporter pad.
 

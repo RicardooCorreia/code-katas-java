@@ -4,7 +4,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 /*
-As the forklifts break through the wall, the Elves are delighted to discover that there was a cafeteria on the other side after all.
+https://adventofcode.com/2025/day/5
+As the fork lifts break through the wall, the Elves are delighted to discover that there was a cafeteria on the other side after all.
 
 You can hear a commotion coming from the kitchen. "At this rate, we won't have any time left to put the wreaths up in the dining hall!" Resolute in your quest, you investigate.
 

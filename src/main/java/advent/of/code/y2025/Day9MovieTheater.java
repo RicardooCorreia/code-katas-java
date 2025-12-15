@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /*
+https://adventofcode.com/2025/day/9
 --- Day 9: Movie Theater ---
 You slide down the firepole in the corner of the playground and land in the North Pole base movie theater!
 

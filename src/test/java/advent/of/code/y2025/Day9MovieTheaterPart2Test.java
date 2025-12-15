@@ -4,9 +4,9 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class Day9MovieTheaterTest {
+class Day9MovieTheaterPart2Test {
 
-    private final Day9MovieTheater subject = new Day9MovieTheater();
+    private final Day9MovieTheaterPart2 subject = new Day9MovieTheaterPart2();
 
     @Test
     void largestRectangle_example() {
@@ -27,7 +27,7 @@ class Day9MovieTheaterTest {
 
         // Then
         assertThat(result)
-                .isEqualTo(50);
+                .isEqualTo(24);
     }
 
     @Test
@@ -537,6 +537,6 @@ class Day9MovieTheaterTest {
 
         // Then
         assertThat(result)
-                .isEqualTo(4758598740L);
+                .isEqualTo(1474699155);
     }
 }

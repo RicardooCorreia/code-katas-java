@@ -3,6 +3,7 @@ package advent.of.code.y2025;
 import java.util.List;
 
 /*
+https://adventofcode.com/2025/day/1
 --- Day 1: Secret Entrance ---
 The Elves have good news and bad news.
 

@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 /*
+https://adventofcode.com/2025/day/6
 --- Day 6: Trash Compactor ---
 After helping the Elves in the kitchen, you were taking a break and helping them re-enact a movie scene when you over-enthusiastically jumped into the garbage chute!
 
