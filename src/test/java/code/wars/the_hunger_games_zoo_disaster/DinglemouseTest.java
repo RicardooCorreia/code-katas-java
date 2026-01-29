@@ -16,25 +16,6 @@ class DinglemouseTest {
         String[] result = Dinglemouse.whoEatsWho(input);
 
         // Then
-
-        /*
-        fox can't eat bug
-            "fox,bug,chicken,grass,sheep"
-        2	bug can't eat anything
-            "fox,bug,chicken,grass,sheep"
-        3	chicken eats bug
-            "fox,chicken,grass,sheep"
-        4	fox eats chicken
-            "fox,grass,sheep"
-        5	fox can't eat grass
-            "fox,grass,sheep"
-        6	grass can't eat anything
-            "fox,grass,sheep"
-        7	sheep eats grass
-            "fox,sheep"
-        8	fox eats sheep
-            "fox"
-         */
         assertThat(result)
                 .isEqualTo(new String[]{
                         "fox,bug,chicken,grass,sheep",
