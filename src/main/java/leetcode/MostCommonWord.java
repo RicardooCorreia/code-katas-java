@@ -39,7 +39,7 @@ public class MostCommonWord {
             String[] words = paragraph.split(" ");
             return Arrays.stream(words)
                     .filter(word -> !bannedWords.contains(word))
-                    .collect(Collectors.toMap(word -> word, _ -> 1, Integer::sum))
+                    .collect(Collectors.toMap(word -> word, a -> 1, Integer::sum))
                     .entrySet()
                     .stream()
                     .max(Comparator.comparingInt(Map.Entry::getValue))

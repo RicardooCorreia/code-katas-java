@@ -11,7 +11,7 @@ public class VisitorStatistics {
     public void visit(String name) {
 
         counter.incrementAndGet();
-        visitorCount.compute(name, (_, value) -> value == null ? 1L : value + 1);
+        visitorCount.compute(name, (a, value) -> value == null ? 1L : value + 1);
     }
 
     public long totalVisits() {
