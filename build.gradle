@@ -11,6 +11,9 @@ repositories {
 
 dependencies {
 
+    // Source: https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
+    implementation("org.apache.commons:commons-lang3:3.20.0")
+
     // Test
     testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.21.0'
     testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.9.1'
