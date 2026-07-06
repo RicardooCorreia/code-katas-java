@@ -2,30 +2,35 @@ package code.wars.atomic_chess;
 
 import static java.lang.Math.max;
 import static java.lang.Math.min;
+import static java.util.Arrays.stream;
+
+import java.util.Arrays;
 
 public class AtomicChess {
 
     public static char[][] makeAtomicMove(final char[][] position, final String stringMove) {
 
+        final var board = stream(position)
+                .map(char[]::clone)
+                .toArray(char[][]::new);
+
         final var move = Move.parse(stringMove);
 
-        position[move.rowTo][move.columnTo] = position[move.rowFrom][move.columnFrom];
-        position[move.rowFrom][move.columnFrom] = '.';
+        board[move.rowTo][move.columnTo] = board[move.rowFrom][move.columnFrom];
+        board[move.rowFrom][move.columnFrom] = '.';
 
         if (move.takes()) {
-            explosion(move.columnTo, move.rowTo, position);
+            explosion(move.rowTo, move.columnTo, board);
         }
 
-        return position;
+        return board;
     }
 
-    private static void explosion(int columnTo, int rowTo, char[][] position) {
-
-        position[rowTo][columnTo] = '.';
-        for (int i = max(columnTo - 1, 0); i < min(columnTo + 2, position.length); i++) {
-            for (int j = max(rowTo - 1, 0); j < min(rowTo + 2, position[0].length); j++) {
-                if (position[j][i] == 'P' || position[j][i] == 'p') continue;
-                position[j][i] = '.';
+    private static void explosion(int rowTo, int columnTo, char[][] board) {
+        for (int r = max(rowTo - 1, 0); r < min(rowTo + 2, board.length); r++) {
+            for (int c = max(columnTo - 1, 0); c < min(columnTo + 2, board[0].length); c++) {
+                if ((r != rowTo || c != columnTo) && (board[r][c] == 'P' || board[r][c] == 'p')) continue;
+                board[r][c] = '.';
             }
         }
     }
