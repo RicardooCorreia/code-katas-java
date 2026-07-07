@@ -5,15 +5,15 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.PriorityQueue;
 
-import static code.wars.allocating_hotel_rooms.AllocatingHotelRooms.Type.CHECK_IN;
-import static code.wars.allocating_hotel_rooms.AllocatingHotelRooms.Type.CHECK_OUT;
+import static code.wars.allocating_hotel_rooms.AllocatingHotelRooms.Event.Type.CHECK_IN;
+import static code.wars.allocating_hotel_rooms.AllocatingHotelRooms.Event.Type.CHECK_OUT;
 import static java.util.Comparator.comparingInt;
 
 public class AllocatingHotelRooms {
 
     private static final Comparator<Event> EVENT_ORDER =
         comparingInt(Event::time)
-        .thenComparingInt(e -> e.type().ordinal());
+            .thenComparingInt(e -> e.type().ordinal());
 
     public static int[] allocateRooms(int[][] customers) {
 
@@ -40,12 +40,11 @@ public class AllocatingHotelRooms {
         return result;
     }
 
-    private record Event(int customer, int time, Type type) {
+    public record Event(int customer, int time, Type type) {
 
-    }
-
-    private enum Type {
-        CHECK_IN,
-        CHECK_OUT,
+        public enum Type {
+            CHECK_IN,
+            CHECK_OUT,
+        }
     }
 }
