@@ -4,7 +4,7 @@ public class Kata {
 
     public static long filterString(final String value) {
 
-        var stringBuilder = new StringBuilder();
+        final var stringBuilder = new StringBuilder();
         value.chars()
             .filter(Character::isDigit)
             .mapToObj(i -> i - '0')
