@@ -34,8 +34,7 @@ public class Kata {
     public static String getVillianName(LocalDate birthdate) {
 
         final var month = birthdate.getMonth().getValue() - 1;
-        final var dayOfMonth = String.valueOf(birthdate.getDayOfMonth());
-        final var lastIndex = dayOfMonth.charAt(dayOfMonth.length() - 1) - '0';
-        return FIRST[month] + " " + LAST[lastIndex];
+        final var dayOfMonth = birthdate.getDayOfMonth() % 10;
+        return FIRST[month] + " " + LAST[dayOfMonth];
     }
 }
