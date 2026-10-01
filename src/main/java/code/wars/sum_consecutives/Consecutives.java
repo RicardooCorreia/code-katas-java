@@ -12,7 +12,7 @@ public class Consecutives {
             return List.of();
         }
 
-        var current = s.get(0);
+        var current = s.getFirst();
         int currentCount = 1;
         final List<Integer> result = new ArrayList<>();
 
